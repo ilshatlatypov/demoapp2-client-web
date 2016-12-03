@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#loginPaper {
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+  width: 304px;
+  /*position: relative;*/
+}
+
+#loginPaper h3 {
+  margin: 0;
+}
+
+.contentPaper {
+  width: 70%;
+  max-width: 1200px;
+  margin: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fullWidthPaperError {
+  text-align: center;
+  padding: 24px;
+}
+
+.listLoadError, .listEmptyMsg {
+  text-align: center;
+  font-size: 13px;
+  padding: 24px;
+}
+
+.fullWidthPaperError, .listLoadError {
+  color: #F44336; /* red500 */
+}
+
+.formError {
+  font-size: 13px;
+  margin-top: 20px;
+  text-align: center;
+  color: #F44336; /* red500 */
+}
+
+.fab {
+  margin: 0;
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: fixed;
+}
+
+.dialogContent {
+  width: 304px !important;
+}
+
+.formDialog {
+  padding: 0 0 24px !important;
+}
+
+.formDialog form {
+  padding: 0 24px;
+}
+
+.deleteDialog {
+  padding: 0 !important;
+}
+.deleteDialog form {
+  padding: 24px;
+}
+
+.hidden {
+  display: none;
+}
+
+.actionButtons svg {
+  color: #757575 !important; /* grey600 */
+}
+
+.idColumn {
+  width: 10%
+}
+
+.firstnameColumn, .lastnameColumn {
+  width: 40%
+}
+
+.actionButtonsColumn {
+  width: 100%;
+  text-align: right !important;
+}
