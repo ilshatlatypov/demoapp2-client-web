@@ -58,7 +58,7 @@ const AppToolbar = ({location, onMenuIconButtonTouchTap}, context) => {
   const styles = getStyles(context.muiTheme);
   const navButtonVisible = location.pathname !== '/login';
   const navButton =
-    <IconButton
+    <IconButton id="menuButton"
       style={styles.iconButtonLeftStyle}
       iconStyle={styles.iconButtonIconStyle}
       onTouchTap={onMenuIconButtonTouchTap}>

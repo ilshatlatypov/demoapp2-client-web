@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import Snackbar from 'material-ui/Snackbar';
 
 const GlobalSnackbar = ({open, message, hide}) => (
-  <Snackbar
+  <Snackbar id="snackbar"
     open={open}
     message={message}
     autoHideDuration={4000}

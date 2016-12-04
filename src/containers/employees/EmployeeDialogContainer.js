@@ -11,14 +11,21 @@ function validate(values) {
   if (!values) {
     return errors;
   }
+
   if (!values.firstname || values.firstname.trim() === '') {
     errors.firstname = "Обязательное поле";
   }
   if (!values.lastname || values.lastname.trim() === '') {
     errors.lastname = "Обязательное поле";
   }
-  if (!values.username || values.username.trim() === '') {
+
+  const username = values.username;
+  if (!username || username.trim() === '') {
     errors.username = "Обязательное поле";
+  } else if (username.length < 3 || username.length > 20) {
+    errors.username = "Минимум 3 символа, максимум 20";
+  } else if (!username.match(/^[a-z]+$/)) {
+    errors.username = "Только латинские буквы";
   }
   return errors;
 }

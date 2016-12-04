@@ -7,8 +7,9 @@ import {Field} from 'redux-form';
 
 // TODO extract to commons
 const renderTextField = (field) => {
+  console.log(field.name);
   return (
-    <TextField
+    <TextField className={field.name}
       floatingLabelText={field.label}
       errorText={field.meta.touched && field.meta.error}
       autoComplete={'off'}
@@ -30,12 +31,12 @@ class EmployeeDialog extends Component {
     const fieldsDisabled = Boolean(initialValuesLoading || initialValuesLoadingError);
 
     const actions = [
-      <FlatButton
+      <FlatButton id="cancelButton"
         label="Отмена"
         primary={true}
         onTouchTap={closeDialog}
       />,
-      <FlatButton
+      <FlatButton id="saveButton"
         label="Сохранить"
         primary={true}
         disabled={pristine || submitting}
@@ -50,7 +51,7 @@ class EmployeeDialog extends Component {
         modal={true}
         open={isDialogOpen}
         onRequestClose={closeDialog}
-        contentClassName="dialogContent"
+        contentClassName="employeeDialog dialogContent"
         bodyClassName="formDialog"
         autoScrollBodyContent={true}>
         { progressVisible ? <LinearProgress mode="indeterminate" /> : null }

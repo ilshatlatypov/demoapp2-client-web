@@ -44,7 +44,7 @@ const getSelectedItemByLocation = (location) => {
 }
 
 const NavigationDrawer = ({open, onRequestChange, onNavItemSelected, onLogout, location}) => (
-  <Drawer
+  <Drawer id="navigationDrawer"
     docked={false}
     open={open}
     onRequestChange={onRequestChange}

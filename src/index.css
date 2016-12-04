@@ -68,10 +68,10 @@ body {
   padding: 0 24px;
 }
 
-.deleteDialog {
+.deleteDialogBody {
   padding: 0 !important;
 }
-.deleteDialog form {
+.deleteDialogBody form {
   padding: 24px;
 }
 

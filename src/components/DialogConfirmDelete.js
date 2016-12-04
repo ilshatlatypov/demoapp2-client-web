@@ -14,7 +14,7 @@ class DialogConfirmDelete extends Component {
         primary={true}
         onTouchTap={cancel}
       />,
-      <FlatButton
+      <FlatButton id="confirmDeleteButton"
         label="Удалить"
         primary={true}
         onTouchTap={handleSubmit(confirm)}
@@ -22,7 +22,12 @@ class DialogConfirmDelete extends Component {
     ]
 
     return (
-      <Dialog actions={actions} open={isOpen} contentClassName="dialogContent" bodyClassName="deleteDialog">
+      <Dialog
+        actions={actions}
+        open={isOpen}
+        contentClassName="deleteDialog dialogContent"
+        bodyClassName="deleteDialogBody"
+      >
         {submitting ? <LinearProgress/> : null}
         <form onSubmit={handleSubmit(confirm)}>
           {message}

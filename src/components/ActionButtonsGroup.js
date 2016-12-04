@@ -9,12 +9,12 @@ const ActionButtonsGroup = props => {
   const {item, openEditDialog, openDeleteDialog} = props;
   return (
     <div className="actionButtons">
-      <IconButton
+      <IconButton className="editButton"
         onClick={doNotPropagate}
         onTouchTap={() => openEditDialog(item.id)}>
         <EditorModeEdit />
       </IconButton>
-      <IconButton
+      <IconButton className="deleteButton"
         onClick={doNotPropagate}
         onTouchTap={() => openDeleteDialog(item)}>
         <ActionDelete />
