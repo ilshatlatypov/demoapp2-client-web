@@ -17,6 +17,12 @@ body {
   margin: 0;
 }
 
+.toolbarGroupCentered {
+  width: 70%;
+  max-width: 1200px;
+  margin: auto;
+}
+
 .contentPaper {
   width: 70%;
   max-width: 1200px;

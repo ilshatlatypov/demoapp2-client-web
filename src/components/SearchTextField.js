@@ -8,7 +8,9 @@ const styles = {
     paddingRight: 14,
     backgroundColor: blueGrey300,
     height: 36,
-    borderRadius: 2
+    borderRadius: 2,
+    width: '100%',
+    boxSizing: 'border-box'
   },
   input: {
     color: white

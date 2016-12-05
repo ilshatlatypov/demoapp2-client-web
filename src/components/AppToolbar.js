@@ -69,14 +69,14 @@ const AppToolbar = ({location, onMenuIconButtonTouchTap}, context) => {
   return (
     <Toolbar style={styles.root}>
 
-      <ToolbarGroup firstChild={true}>
+      <ToolbarGroup firstChild={true} style={{position: 'absolute'}}>
         {navButtonVisible ? navButton : navButtonStub}
         <h1 style={styles.title}>{title}</h1>
       </ToolbarGroup>
 
-      <ToolbarGroup style={{paddingTop: 14, paddingBotton: 14 }}>
-        <SearchTextFieldContainer/>
-      </ToolbarGroup>
+      <div style={{minWidth: 200}}></div>
+      <div className="toolbarGroupCentered"><SearchTextFieldContainer/></div>
+      <div style={{minWidth: 200}}></div>
 
     </Toolbar>
   );
