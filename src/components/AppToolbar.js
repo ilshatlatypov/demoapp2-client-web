@@ -65,6 +65,7 @@ const AppToolbar = ({location, onMenuIconButtonTouchTap}, context) => {
       <NavigationMenu />
     </IconButton>;
   const navButtonStub = <div style={styles.iconButtonLeftStyle}/>;
+  const displaySearchBox = (location.pathname === '/employees');
 
   return (
     <Toolbar style={styles.root}>
@@ -74,9 +75,15 @@ const AppToolbar = ({location, onMenuIconButtonTouchTap}, context) => {
         <h1 style={styles.title}>{title}</h1>
       </ToolbarGroup>
 
-      <div style={{minWidth: 200}}></div>
-      <div className="toolbarGroupCentered"><SearchTextFieldContainer/></div>
-      <div style={{minWidth: 200}}></div>
+      {
+        displaySearchBox ?
+          <div style={{display: 'flex', width: '100%'}}>
+            <div style={{minWidth: 200}}></div>
+            <div className="toolbarGroupCentered"><SearchTextFieldContainer/></div>
+            <div style={{minWidth: 200}}></div>
+          </div>
+          : null
+      }
 
     </Toolbar>
   );
