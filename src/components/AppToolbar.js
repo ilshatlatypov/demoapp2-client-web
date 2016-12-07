@@ -21,6 +21,7 @@ const getStyles = (theme) => {
     root: {
       height: appBar.height,
       backgroundColor: appBar.color,
+      boxShadow: 'rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px' // zDepth = 1
     },
     title: {
       whiteSpace: 'nowrap',
