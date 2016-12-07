@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import Paper from 'material-ui/Paper';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow} from 'material-ui/Table';
 import LinearProgress from 'material-ui/LinearProgress';
@@ -39,6 +39,11 @@ class EmployeesList extends Component {
   renderEmployees(employees) {
     return employees.map((employee) => <Employee key={employee.id} employee={employee} />);
   }
+}
+
+EmployeesList.propTypes = {
+  employeesList: PropTypes.object.isRequired,
+  fetchEmployees: PropTypes.func.isRequired
 }
 
 export default EmployeesList;

@@ -1,6 +1,5 @@
 import {connect} from 'react-redux'
 import {setSearchString} from '../actions/filters';
-
 import SearchTextField from '../components/SearchTextField';
 
 const mapStateToProps = (state) => {
@@ -11,7 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onChange: (newSearchString) => dispatch(setSearchString(newSearchString))
+    onChange: (newSearchString) => dispatch(setSearchString(newSearchString)),
+    drop: () => dispatch(setSearchString(''))
   }
 }
 

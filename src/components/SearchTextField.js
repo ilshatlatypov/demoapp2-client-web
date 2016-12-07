@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import TextField from 'material-ui/TextField';
 import {blueGrey300, blueGrey700, white} from 'material-ui/styles/colors';
 
@@ -21,19 +21,36 @@ const styles = {
   }
 }
 
-const SearchTextField = ({searchString, onChange}) => (
-    <TextField
-      value={searchString}
-      onChange={(e) => onChange(e.target.value.trim())}
-      underlineShow={false} hintText="Поиск"
-      style={styles.root}
-      inputStyle={styles.input}
-      hintStyle={styles.hint} />
-);
+class SearchTextField extends Component {
+  componentWillMount() {
+    this.props.drop();
+  }
+
+  handleKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      this.props.onChange('');
+    }
+  }
+
+  render() {
+    const {searchString, onChange} = this.props;
+    return (
+      <TextField
+        value={searchString}
+        onChange={(e) => onChange(e.target.value)}
+        onKeyDown={this.handleKeyDown}
+        underlineShow={false} hintText="Поиск"
+        style={styles.root}
+        inputStyle={styles.input}
+        hintStyle={styles.hint} />
+    )
+  }
+}
 
 SearchTextField.propTypes = {
   searchString: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  drop: PropTypes.func.isRequired
 }
 
 export default SearchTextField;
