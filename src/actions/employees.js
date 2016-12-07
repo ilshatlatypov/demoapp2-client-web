@@ -148,8 +148,8 @@ export function deleteEmployee(id) {
 
 
 
-export function checkUsernameUsed(username) {
-  const request = axiosInstance.get('/rest/employees/isUsernameUsed/' + username);
+export function checkUsernameAvailable(username) {
+  const request = axiosInstance.get('/rest/employees/isUsernameAvailable/' + username);
   return {
     type: CHECK_USERNAME_USED,
     payload: request

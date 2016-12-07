@@ -7,7 +7,6 @@ import {Field} from 'redux-form';
 
 // TODO extract to commons
 const renderTextField = (field) => {
-  console.log(field.name);
   return (
     <TextField className={field.name}
       floatingLabelText={field.label}

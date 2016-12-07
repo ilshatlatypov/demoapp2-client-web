@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import {reduxForm, SubmissionError, reset} from 'redux-form';
 import EmployeeDialog from '../../components/employees/EmployeeDialog';
 import {
-  createEmployee, updateEmployee, closeEmployeeDialog, resetEmployee, fetchEmployees, checkUsernameUsed
+  createEmployee, updateEmployee, closeEmployeeDialog, resetEmployee, fetchEmployees, checkUsernameAvailable
 } from '../../actions/employees';
 import {showSnackbar} from '../../actions/common';
 
@@ -39,15 +39,15 @@ const asyncValidate = (values, dispatch) => {
       return;
     }
 
-    dispatch(checkUsernameUsed(values.username)).then((action) => {
-      const usernameFound = !action.error && action.payload.status === 200;
-      const usernameNotFound = action.error && action.payload.response && action.payload.response.status === 404;
+    dispatch(checkUsernameAvailable(values.username)).then((action) => {
+      const usernameAvailable = !action.error && action.payload.status === 200;
+      const usernameAlreadyUsed = action.error && action.payload.response && action.payload.response.status === 409;
       const serverUnavailable = action.error && !action.payload.response;
-      if (usernameFound) {
+      if (usernameAlreadyUsed) {
         reject({username: 'Такой логин уже используется'});
         return;
       }
-      if (usernameNotFound) {
+      if (usernameAvailable) {
         resolve();
         return;
       }
