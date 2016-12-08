@@ -9,6 +9,7 @@ const getTitleByLocation = (location) => {
     case '/': return "Главная";
     case '/tasks': return "Задачи";
     case '/employees': return "Сотрудники";
+    case '/profile': return "Профиль";
     case '/login': return "Вход";
     default: return "";
   }

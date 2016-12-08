@@ -10,7 +10,6 @@ body {
   margin-right: auto;
   padding: 24px;
   width: 304px;
-  /*position: relative;*/
 }
 
 #loginPaper h3 {
@@ -29,28 +28,6 @@ body {
   margin: 24px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.fullWidthPaperError {
-  text-align: center;
-  padding: 24px;
-}
-
-.listLoadError, .listEmptyMsg {
-  text-align: center;
-  font-size: 13px;
-  padding: 24px;
-}
-
-.fullWidthPaperError, .listLoadError {
-  color: #F44336; /* red500 */
-}
-
-.formError {
-  font-size: 13px;
-  margin-top: 20px;
-  text-align: center;
-  color: #F44336; /* red500 */
 }
 
 .fab {
@@ -85,6 +62,10 @@ body {
   display: none;
 }
 
+.centered {
+  text-align: center;
+}
+
 .actionButtons svg {
   color: #757575 !important; /* grey600 */
 }
@@ -100,4 +81,26 @@ body {
 .actionButtonsColumn {
   width: 100%;
   text-align: right !important;
+}
+
+/* ERRORS */
+
+.fullWidthPaperError, .listLoadError, .listEmptyMsg {
+  text-align: center;
+  padding: 24px;
+}
+
+.listLoadError, .listEmptyMsg {
+  font-size: 13px;
+}
+
+.error, .fullWidthPaperError, .listLoadError {
+  color: #F44336; /* red500 */
+}
+
+.formError {
+  font-size: 13px;
+  margin-top: 20px;
+  text-align: center;
+  color: #F44336; /* red500 */
 }

@@ -6,6 +6,7 @@ import ContentPaste from 'material-ui/svg-icons/content/content-paste';
 import SocialPeople from 'material-ui/svg-icons/social/people';
 import ActionExitToApp from 'material-ui/svg-icons/action/exit-to-app';
 import ActionHome from 'material-ui/svg-icons/action/home';
+import ActionAccountBox from 'material-ui/svg-icons/action/account-box';
 import {Link} from 'react-router';
 
 let SelectableList = MakeSelectable(List);
@@ -39,6 +40,7 @@ const getSelectedItemByLocation = (location) => {
     case '/': return 0;
     case '/tasks': return 1;
     case '/employees': return 2;
+    case '/profile': return 3;
     default: return -1;
   }
 }
@@ -53,6 +55,7 @@ const NavigationDrawer = ({open, onRequestChange, onNavItemSelected, onLogout, l
       <ListItem containerElement={<Link to="/" />} value={0} primaryText="Главная" leftIcon={<ActionHome />} onTouchTap={onNavItemSelected}/>
       <ListItem containerElement={<Link to="/tasks" />} value={1} primaryText="Задачи" leftIcon={<ContentPaste />} onTouchTap={onNavItemSelected}/>
       <ListItem containerElement={<Link to="/employees" />} value={2} primaryText="Сотрудники" leftIcon={<SocialPeople />} onTouchTap={onNavItemSelected}/>
+      <ListItem containerElement={<Link to="/profile" />} value={3} primaryText="Профиль" leftIcon={<ActionAccountBox />} onTouchTap={onNavItemSelected}/>
     </SelectableList>
     <Divider />
     <List>
