@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {fetchProfile} from '../../actions/profile';
+import {fetchProfile, openChangePasswordDialog} from '../../actions/profile';
 import Profile from '../../components/profile/Profile';
 
 const ProfileContainer = connect(
@@ -7,8 +7,9 @@ const ProfileContainer = connect(
     profilePageContent: state.profile.pageContent
   }),
   dispatch => ({
-    fetchProfile: () => dispatch(fetchProfile())
+    fetchProfile: () => dispatch(fetchProfile()),
+    openChangePasswordDialog: () => dispatch(openChangePasswordDialog())
   })
 )(Profile)
 
-export default ProfileContainer
+export default ProfileContainer;

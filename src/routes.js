@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage';
 import EmployeesPage from './pages/EmployeesPage';
 import NotFoundPage from './pages/NotFoundPage';
 import TasksListContainer from './containers/TasksListContainer';
-import ProfileContainer from './containers/profile/ProfileContainer';
+import ProfilePage from './pages/ProfilePage';
 import axiosInstance from './actions/axiosInstance';
 
 function checkCredentialsForNotFound(nextState, replace, callback) {
@@ -35,7 +35,7 @@ export const routes = (
     <IndexRoute component={HomePage} onEnter={checkCredentials}/>
     <Route path='/employees' component={EmployeesPage} onEnter={checkCredentials}/>
     <Route path='/tasks' component={TasksListContainer} onEnter={checkCredentials}/>
-    <Route path='/profile' component={ProfileContainer} onEnter={checkCredentials}/>
+    <Route path='/profile' component={ProfilePage} onEnter={checkCredentials}/>
     <Route path='/login' component={LoginPage} />
     <Route path='*' component={NotFoundPage} onEnter={checkCredentialsForNotFound}/>
   </Route>

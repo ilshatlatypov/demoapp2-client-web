@@ -8,8 +8,10 @@ class Profile extends Component {
     this.props.fetchProfile();
   }
 
+  handleChangePasswordTap = () => this.props.openChangePasswordDialog();
+
   render() {
-    const { profile, loading, error } = this.props.profilePageContent;
+    const {profile, loading, error} = this.props.profilePageContent;
 
     let content;
     if (loading) {
@@ -25,7 +27,8 @@ class Profile extends Component {
             <p>Логин: <b>{profile.username}</b></p>
           </div>
           <div>
-            <RaisedButton label="Сменить пароль" primary={true}/>
+            <RaisedButton label="Сменить пароль" primary={true}
+              onTouchTap={this.handleChangePasswordTap}/>
           </div>
         </div>;
     }
@@ -39,8 +42,9 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
+  profilePageContent: PropTypes.object.isRequired,
   fetchProfile: PropTypes.func.isRequired,
-  profilePageContent: PropTypes.object.isRequired
+  openChangePasswordDialog: PropTypes.func.isRequired
 }
 
 export default Profile;
