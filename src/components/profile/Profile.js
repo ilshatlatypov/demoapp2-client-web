@@ -27,7 +27,8 @@ class Profile extends Component {
             <p>Логин: <b>{profile.username}</b></p>
           </div>
           <div>
-            <RaisedButton label="Сменить пароль" primary={true}
+            <RaisedButton id="changePasswordButton"
+              label="Сменить пароль" primary={true}
               onTouchTap={this.handleChangePasswordTap}/>
           </div>
         </div>;
