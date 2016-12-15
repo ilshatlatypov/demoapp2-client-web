@@ -71,11 +71,15 @@ body {
 }
 
 .idColumn {
-  width: 10%
+  width: 10%;
 }
 
 .firstnameColumn, .lastnameColumn {
-  width: 40%
+  width: 40%;
+}
+
+.titleColumn {
+  width: 90%;
 }
 
 .actionButtonsColumn {

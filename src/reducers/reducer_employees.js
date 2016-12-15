@@ -1,5 +1,5 @@
 import {
-	REQUEST_EMPLOYEES, REQUEST_EMPLOYEES_SUCCESS, REQUEST_EMPLOYEES_FAILURE, RESET_EMPLOYEES,
+	REQUEST_EMPLOYEES, REQUEST_EMPLOYEES_SUCCESS, REQUEST_EMPLOYEES_FAILURE,
 	REQUEST_EMPLOYEE, REQUEST_EMPLOYEE_SUCCESS, REQUEST_EMPLOYEE_FAILURE, RESET_EMPLOYEE,
 	OPEN_EMPLOYEE_DIALOG, CLOSE_EMPLOYEE_DIALOG,
 	OPEN_DELETE_EMPLOYEE_DIALOG, CLOSE_DELETE_EMPLOYEE_DIALOG
@@ -21,8 +21,6 @@ export default function(state = INITIAL_STATE, action) {
     return { ...state, employeesList: {employees: action.payload, error:null, loading: false} };
   case REQUEST_EMPLOYEES_FAILURE:
     return { ...state, employeesList: {employees: [], error: action.payload, loading: false} };
-  case RESET_EMPLOYEES:
-    return { ...state, employeesList: {employees: [], error:null, loading: false} };
 
 	case REQUEST_EMPLOYEE:
 		return {...state, employeeSingle: {employee: null, error: null, loading: true}};

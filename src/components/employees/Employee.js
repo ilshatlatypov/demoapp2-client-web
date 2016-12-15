@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {TableRow, TableRowColumn} from 'material-ui/Table';
-import ActionButtonsGroupContainer from '../../containers/ActionButtonsGroupContainer';
+import ActionButtonsGroupContainer from '../../containers/employees/ActionButtonsGroupContainer';
 
 class Employee extends Component {
   state = {actionButtonsVisible: false}

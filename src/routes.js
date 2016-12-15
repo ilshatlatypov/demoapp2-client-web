@@ -6,7 +6,7 @@ import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import EmployeesPage from './pages/EmployeesPage';
 import NotFoundPage from './pages/NotFoundPage';
-import TasksListContainer from './containers/TasksListContainer';
+import TasksPage from './pages/TasksPage';
 import ProfilePage from './pages/ProfilePage';
 import axiosInstance from './actions/axiosInstance';
 
@@ -34,7 +34,7 @@ export const routes = (
   <Route path='/' component={App}>
     <IndexRoute component={HomePage} onEnter={checkCredentials}/>
     <Route path='/employees' component={EmployeesPage} onEnter={checkCredentials}/>
-    <Route path='/tasks' component={TasksListContainer} onEnter={checkCredentials}/>
+    <Route path='/tasks' component={TasksPage} onEnter={checkCredentials}/>
     <Route path='/profile' component={ProfilePage} onEnter={checkCredentials}/>
     <Route path='/login' component={LoginPage} />
     <Route path='*' component={NotFoundPage} onEnter={checkCredentialsForNotFound}/>

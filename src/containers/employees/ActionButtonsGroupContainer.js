@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 import {
   openEmployeeDialog, openDeleteEmployeeDialog, fetchEmployee
-} from '../actions/employees';
-import ActionButtonsGroup from '../components/ActionButtonsGroup';
+} from '../../actions/employees';
+import ActionButtonsGroup from '../../components/ActionButtonsGroup';
 
 function openEditDialog(id, dispatch) {
   dispatch(openEmployeeDialog());
