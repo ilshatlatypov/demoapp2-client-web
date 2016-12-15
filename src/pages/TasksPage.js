@@ -1,7 +1,7 @@
 import React from 'react';
 import TasksListContainer from '../containers/tasks/TasksListContainer';
 //import EmployeeDialogContainer from '../containers/employees/EmployeeDialogContainer';
-//import NewTaskFABContainer from '../containers/tasks/NewTaskFABContainer';
+import NewTaskFABContainer from '../containers/tasks/NewTaskFABContainer';
 //import DialogConfirmDeleteContainer from '../containers/DialogConfirmDeleteContainer';
 
 const TasksPage = (props) => (
@@ -9,7 +9,7 @@ const TasksPage = (props) => (
     <TasksListContainer/>
     {/*<EmployeeDialogContainer/>*/}
     {/*<DialogConfirmDeleteContainer/>*/}
-    {/*<NewTaskFABContainer/>*/}
+    <NewTaskFABContainer/>
   </div>
 );
 
