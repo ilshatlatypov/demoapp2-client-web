@@ -1,13 +1,13 @@
 import React from 'react';
 import TasksListContainer from '../containers/tasks/TasksListContainer';
-//import EmployeeDialogContainer from '../containers/employees/EmployeeDialogContainer';
+import TaskDialogContainer from '../containers/tasks/TaskDialogContainer';
 import NewTaskFABContainer from '../containers/tasks/NewTaskFABContainer';
 //import DialogConfirmDeleteContainer from '../containers/DialogConfirmDeleteContainer';
 
 const TasksPage = (props) => (
   <div>
     <TasksListContainer/>
-    {/*<EmployeeDialogContainer/>*/}
+    <TaskDialogContainer/>
     {/*<DialogConfirmDeleteContainer/>*/}
     <NewTaskFABContainer/>
   </div>

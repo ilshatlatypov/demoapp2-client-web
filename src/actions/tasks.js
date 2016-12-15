@@ -4,6 +4,9 @@ export const REQUEST_TASKS = 'REQUEST_TASKS';
 export const REQUEST_TASKS_SUCCESS = 'REQUEST_TASKS_SUCCESS';
 export const REQUEST_TASKS_FAILURE = 'REQUEST_TASKS_FAILURE';
 
+export const OPEN_TASK_DIALOG = 'OPEN_TASK_DIALOG';
+export const CLOSE_TASK_DIALOG = 'CLOSE_TASK_DIALOG';
+
 export function requestTasks() {
   return { type: REQUEST_TASKS };
 }
@@ -34,4 +37,14 @@ export function fetchTasks() {
 				dispatch(requestTasksFailure(error));
 			})
 	}
+}
+
+
+
+export function openTaskDialog() {
+  return { type: OPEN_TASK_DIALOG }
+}
+
+export function closeTaskDialog() {
+  return { type: CLOSE_TASK_DIALOG }
 }
