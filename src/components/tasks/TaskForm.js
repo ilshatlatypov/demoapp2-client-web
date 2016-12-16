@@ -16,8 +16,9 @@ const renderTextField = (field) => {
 }
 
 const TaskForm = props => {
+  const {error, handleSubmit, pristine, submitting} = props;
   return (
-    <form>
+    <form onSubmit={handleSubmit} >
       <div>
         <Field name="title" component={renderTextField} label="Название"/>
       </div>

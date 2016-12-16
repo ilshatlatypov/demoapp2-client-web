@@ -7,6 +7,8 @@ export const REQUEST_TASKS_FAILURE = 'REQUEST_TASKS_FAILURE';
 export const OPEN_TASK_DIALOG = 'OPEN_TASK_DIALOG';
 export const CLOSE_TASK_DIALOG = 'CLOSE_TASK_DIALOG';
 
+export const CREATE_TASK = 'CREATE_TASK';
+
 export function requestTasks() {
   return { type: REQUEST_TASKS };
 }
@@ -47,4 +49,14 @@ export function openTaskDialog() {
 
 export function closeTaskDialog() {
   return { type: CLOSE_TASK_DIALOG }
+}
+
+
+
+export function createTask(props) {
+  const request = axiosInstance.post('/rest/tasks', props);
+  return {
+    type: CREATE_TASK,
+    payload: request
+  };
 }
