@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import TaskFormContainer from '../../containers/tasks/TaskFormContainer';
 
 const TaskDialog = props => {
   const {isOpen, save, close} = props;
@@ -32,7 +33,7 @@ const TaskDialog = props => {
       contentClassName="taskDialog dialogContent"
       bodyClassName="formDialog"
       autoScrollBodyContent={true}>
-      <div style={{padding: 24}}>Hello world!</div>
+      <TaskFormContainer/>
     </Dialog>
   );
 }
