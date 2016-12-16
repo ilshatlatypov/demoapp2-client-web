@@ -54,6 +54,6 @@ export default connect(
   dispatch => ({
     submit: (data) => dispatch(submit('TaskForm')),
     save: (data) => attemptSaveTask(data, dispatch),
-    close: () => dispatch(closeTaskDialog())
+    cancel: () => dispatch(closeTaskDialog())
   })
 )(TaskDialog);

@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import TaskFormContainer from '../../containers/tasks/TaskFormContainer';
 
 const TaskDialog = props => {
-  const {isOpen, save, close, submit} = props;
+  const {isOpen, submit, save, cancel} = props;
   const title = "Новая задача";
   const pristine = false;
   const submitting = false;
@@ -13,7 +13,7 @@ const TaskDialog = props => {
     <FlatButton id="cancelButton"
       label="Отмена"
       primary={true}
-      onTouchTap={close}
+      onTouchTap={cancel}
     />,
     <FlatButton id="saveButton"
       label="Сохранить"
@@ -29,7 +29,7 @@ const TaskDialog = props => {
       actions={actions}
       modal={true}
       open={isOpen}
-      onRequestClose={close}
+      onRequestClose={cancel}
       contentClassName="taskDialog dialogContent"
       bodyClassName="formDialog"
       autoScrollBodyContent={true}>
@@ -42,7 +42,7 @@ TaskDialog.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   submit: PropTypes.func.isRequired,
   save: PropTypes.func.isRequired,
-  close: PropTypes.func.isRequired
+  cancel: PropTypes.func.isRequired
 }
 
 export default TaskDialog;

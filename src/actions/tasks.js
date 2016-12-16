@@ -9,6 +9,11 @@ export const CLOSE_TASK_DIALOG = 'CLOSE_TASK_DIALOG';
 
 export const CREATE_TASK = 'CREATE_TASK';
 
+export const OPEN_DELETE_DIALOG = 'OPEN_DELETE_DIALOG';
+export const CLOSE_DELETE_DIALOG = 'CLOSE_DELETE_DIALOG';
+
+export const DELETE_TASK = 'DELETE_TASK';
+
 export function requestTasks() {
   return { type: REQUEST_TASKS };
 }
@@ -59,4 +64,27 @@ export function createTask(props) {
     type: CREATE_TASK,
     payload: request
   };
+}
+
+
+
+export function openDeleteDialog(task) {
+  return {
+    type: OPEN_DELETE_DIALOG,
+    payload: task,
+  }
+}
+
+export function closeDeleteDialog() {
+  return { type: CLOSE_DELETE_DIALOG }
+}
+
+
+
+export function deleteTask(id) {
+  const request = axiosInstance.delete('/rest/tasks/' + id);
+  return {
+    type: DELETE_TASK,
+    payload: request
+  }
 }
