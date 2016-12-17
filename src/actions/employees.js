@@ -14,9 +14,13 @@ export const UPDATE_EMPLOYEE = 'UPDATE_EMPLOYEE';
 export const OPEN_EMPLOYEE_DIALOG = 'OPEN_EMPLOYEE_DIALOG';
 export const CLOSE_EMPLOYEE_DIALOG = 'CLOSE_EMPLOYEE_DIALOG';
 
+export const OPEN_DELETE_DIALOG = 'OPEN_DELETE_DIALOG';
+export const CLOSE_DELETE_DIALOG = 'CLOSE_DELETE_DIALOG';
+
 export const DELETE_EMPLOYEE = 'DELETE_EMPLOYEE';
-export const OPEN_DELETE_EMPLOYEE_DIALOG = 'OPEN_DELETE_EMPLOYEE_DIALOG';
-export const CLOSE_DELETE_EMPLOYEE_DIALOG = 'CLOSE_DELETE_EMPLOYEE_DIALOG';
+export const REQUEST_DELETE_EMPLOYEE = 'REQUEST_DELETE_EMPLOYEE';
+export const REQUEST_DELETE_EMPLOYEE_SUCCESS = 'REQUEST_DELETE_EMPLOYEE_SUCCESS';
+export const REQUEST_DELETE_EMPLOYEE_FAILURE = 'REQUEST_DELETE_EMPLOYEE_FAILURE';
 
 export const CHECK_USERNAME_USED = 'CHECK_USERNAME_USED';
 
@@ -124,25 +128,40 @@ export function closeEmployeeDialog() {
 
 
 
-export function openDeleteEmployeeDialog(employee) {
+export function openDeleteDialog(employee) {
   return {
-    type: OPEN_DELETE_EMPLOYEE_DIALOG,
+    type: OPEN_DELETE_DIALOG,
     payload: employee,
   }
 }
 
-export function closeDeleteEmployeeDialog() {
-  return { type: CLOSE_DELETE_EMPLOYEE_DIALOG }
+export function closeDeleteDialog() {
+  return { type: CLOSE_DELETE_DIALOG }
 }
 
 
+
+export function requestDeleteEmployee() {
+  return { type: REQUEST_DELETE_EMPLOYEE };
+}
+
+export function requestDeleteEmployeeSuccess() {
+  return { type: REQUEST_DELETE_EMPLOYEE_SUCCESS };
+}
+
+export function requestDeleteEmployeeFailure(error) {
+  return {
+    type: REQUEST_DELETE_EMPLOYEE_FAILURE,
+    payload: error
+  };
+}
 
 export function deleteEmployee(id) {
   const request = axiosInstance.delete('/rest/employees/' + id);
   return {
     type: DELETE_EMPLOYEE,
     payload: request
-  }
+  };
 }
 
 

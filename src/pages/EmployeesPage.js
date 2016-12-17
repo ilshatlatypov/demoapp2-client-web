@@ -2,13 +2,13 @@ import React from 'react';
 import EmployeesListContainer from '../containers/employees/EmployeesListContainer';
 import EmployeeDialogContainer from '../containers/employees/EmployeeDialogContainer';
 import NewEmployeeFABContainer from '../containers/employees/NewEmployeeFABContainer';
-import DialogConfirmDeleteContainer from '../containers/DialogConfirmDeleteContainer';
+import DeleteEmployeeDialogContainer from '../containers/employees/DeleteEmployeeDialogContainer';
 
 const EmployeesPage = (props) => (
   <div>
     <EmployeesListContainer/>
     <EmployeeDialogContainer/>
-    <DialogConfirmDeleteContainer/>
+    <DeleteEmployeeDialogContainer/>
     <NewEmployeeFABContainer/>
   </div>
 );

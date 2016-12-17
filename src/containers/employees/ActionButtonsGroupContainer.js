@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {
-  openEmployeeDialog, openDeleteEmployeeDialog, fetchEmployee
+  openEmployeeDialog, openDeleteDialog, fetchEmployee
 } from '../../actions/employees';
 import ActionButtonsGroup from '../../components/ActionButtonsGroup';
 
@@ -13,6 +13,6 @@ export default connect(
   state => ({}),
   dispatch => ({
     openEditDialog: (id) => openEditDialog(id, dispatch),
-    openDeleteDialog: (item) => dispatch(openDeleteEmployeeDialog(item))
+    openDeleteDialog: (item) => dispatch(openDeleteDialog(item))
   })
 )(ActionButtonsGroup);

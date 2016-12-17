@@ -2,13 +2,13 @@ import React from 'react';
 import TasksListContainer from '../containers/tasks/TasksListContainer';
 import TaskDialogContainer from '../containers/tasks/TaskDialogContainer';
 import NewTaskFABContainer from '../containers/tasks/NewTaskFABContainer';
-import DeleteDialogContainer from '../containers/tasks/DeleteDialogContainer';
+import DeleteTaskDialogContainer from '../containers/tasks/DeleteTaskDialogContainer';
 
 const TasksPage = (props) => (
   <div>
     <TasksListContainer/>
     <TaskDialogContainer/>
-    <DeleteDialogContainer/>
+    <DeleteTaskDialogContainer/>
     <NewTaskFABContainer/>
   </div>
 );

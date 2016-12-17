@@ -1,13 +1,15 @@
 import {
 	REQUEST_TASKS, REQUEST_TASKS_SUCCESS, REQUEST_TASKS_FAILURE,
 	OPEN_TASK_DIALOG, CLOSE_TASK_DIALOG, SET_TASK_DIALOG_SUBMITTING,
-	OPEN_DELETE_DIALOG, CLOSE_DELETE_DIALOG
+	OPEN_DELETE_DIALOG, CLOSE_DELETE_DIALOG,
+	REQUEST_DELETE_TASK, REQUEST_DELETE_TASK_SUCCESS, REQUEST_DELETE_TASK_FAILURE
 } from '../actions/tasks';
 
 const INITIAL_STATE = {
 	tasksList: { tasks: [], error: null, loading: false },
 	taskDialog: { open: false, submitting: false },
-	deleteTask: {dialogOpen: false, id: null, title: null}
+	deleteTaskDialog: { open: false, task: null },
+	deleteTask: { deleting: false, error: null }
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -28,10 +30,16 @@ export default function(state = INITIAL_STATE, action) {
 		return { ...state, taskDialog: { ...state.taskDialog, submitting: action.payload } };
 
 	case OPEN_DELETE_DIALOG:
-		const task = action.payload;
-		return {...state, deleteTask: {dialogOpen: true, id: task.id, title: task.title}};
+		return { ...state, deleteTaskDialog: { open: true, task: action.payload } };
 	case CLOSE_DELETE_DIALOG:
-		return {...state, deleteTask: {dialogOpen: false, id: null, title: null}};
+		return { ...state, deleteTaskDialog: { open: false, task: null } };
+
+	case REQUEST_DELETE_TASK:
+  	return { ...state, deleteTask: { error: null, deleting: true } };
+  case REQUEST_DELETE_TASK_SUCCESS:
+    return { ...state, deleteTask: { error: null, deleting: false } };
+  case REQUEST_DELETE_TASK_FAILURE:
+    return { ...state, deleteTask: { error: action.payload.message, deleting: false} };
 
   default:
     return state;

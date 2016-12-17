@@ -16,12 +16,13 @@ const renderTextField = (field) => {
 }
 
 const TaskForm = props => {
-  const {error, handleSubmit, pristine, submitting} = props;
+  const {error, handleSubmit} = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <Field name="title" component={renderTextField} label="Название"/>
       </div>
+      { error && <div className="formError">{error}</div> }
       <button type="submit" className="hidden">Submit On Enter Key Press</button>
     </form>
   )

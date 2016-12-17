@@ -2,14 +2,16 @@ import {
 	REQUEST_EMPLOYEES, REQUEST_EMPLOYEES_SUCCESS, REQUEST_EMPLOYEES_FAILURE,
 	REQUEST_EMPLOYEE, REQUEST_EMPLOYEE_SUCCESS, REQUEST_EMPLOYEE_FAILURE, RESET_EMPLOYEE,
 	OPEN_EMPLOYEE_DIALOG, CLOSE_EMPLOYEE_DIALOG,
-	OPEN_DELETE_EMPLOYEE_DIALOG, CLOSE_DELETE_EMPLOYEE_DIALOG
+	OPEN_DELETE_DIALOG, CLOSE_DELETE_DIALOG,
+	REQUEST_DELETE_EMPLOYEE, REQUEST_DELETE_EMPLOYEE_SUCCESS, REQUEST_DELETE_EMPLOYEE_FAILURE
 } from '../actions/employees';
 
 const INITIAL_STATE = {
 	employeesList: {employees: [], error: null, loading: false},
 	employeeSingle: {employee: null, error: null, loading: false},
 	newEmployee: {dialogOpen: false},
-	deleteEmployee: {id: null, message: '', dialogOpen: false}
+	deleteEmployeeDialog: { open: false, employee: null },
+	deleteEmployee: { deleting: false, error: null }
 };
 
 export default function(state = INITIAL_STATE, action) {
@@ -36,11 +38,17 @@ export default function(state = INITIAL_STATE, action) {
 	case CLOSE_EMPLOYEE_DIALOG:
 		return {...state, newEmployee: {dialogOpen: false}};
 
-	case OPEN_DELETE_EMPLOYEE_DIALOG:
-		const employee = action.payload;
-		return {...state, deleteEmployee: {id: employee.id, fullname: employee.firstname + ' ' + employee.lastname, dialogOpen: true}};
-	case CLOSE_DELETE_EMPLOYEE_DIALOG:
-		return {...state, deleteEmployee: {id: null, message: '', dialogOpen: false}};
+	case OPEN_DELETE_DIALOG:
+		return { ...state, deleteEmployeeDialog: { open: true, employee: action.payload } };
+	case CLOSE_DELETE_DIALOG:
+		return { ...state, deleteEmployeeDialog: { open: false, employee: null } };
+
+	case REQUEST_DELETE_EMPLOYEE:
+  	return { ...state, deleteEmployee: { error: null, deleting: true } };
+  case REQUEST_DELETE_EMPLOYEE_SUCCESS:
+    return { ...state, deleteEmployee: { error: null, deleting: false } };
+  case REQUEST_DELETE_EMPLOYEE_FAILURE:
+    return { ...state, deleteEmployee: { error: action.payload.message, deleting: false} };
 
   default:
     return state;

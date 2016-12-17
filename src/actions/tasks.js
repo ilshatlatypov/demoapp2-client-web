@@ -14,6 +14,9 @@ export const OPEN_DELETE_DIALOG = 'OPEN_DELETE_DIALOG';
 export const CLOSE_DELETE_DIALOG = 'CLOSE_DELETE_DIALOG';
 
 export const DELETE_TASK = 'DELETE_TASK';
+export const REQUEST_DELETE_TASK = 'REQUEST_DELETE_TASK';
+export const REQUEST_DELETE_TASK_SUCCESS = 'REQUEST_DELETE_TASK_SUCCESS';
+export const REQUEST_DELETE_TASK_FAILURE = 'REQUEST_DELETE_TASK_FAILURE';
 
 export function requestTasks() {
   return { type: REQUEST_TASKS };
@@ -87,10 +90,25 @@ export function closeDeleteDialog() {
 
 
 
+export function requestDeleteTask() {
+  return { type: REQUEST_DELETE_TASK };
+}
+
+export function requestDeleteTaskSuccess() {
+  return { type: REQUEST_DELETE_TASK_SUCCESS };
+}
+
+export function requestDeleteTaskFailure(error) {
+  return {
+    type: REQUEST_DELETE_TASK_FAILURE,
+    payload: error
+  };
+}
+
 export function deleteTask(id) {
   const request = axiosInstance.delete('/rest/tasks/' + id);
   return {
     type: DELETE_TASK,
     payload: request
-  }
+  };
 }
