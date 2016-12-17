@@ -1,20 +1,25 @@
 import {connect} from 'react-redux';
-import {submit, SubmissionError} from 'redux-form'
+import {submit, SubmissionError, isPristine} from 'redux-form'
 import TaskDialog from '../../components/tasks/TaskDialog';
-import {createTask, fetchTasks, closeTaskDialog} from '../../actions/tasks';
+import {
+  createTask, fetchTasks, closeTaskDialog, setTaskDialogSubmitting
+} from '../../actions/tasks';
 import {showSnackbar} from '../../actions/common';
 
 function attemptSaveTask(data, dispatch) {
   return new Promise((resolve, reject) => {
+    dispatch(setTaskDialogSubmitting(true));
     dispatch(createTask(data)).then((action) => {
       if (action.error) {
         const response = action.payload.response;
         const validationErrors = response ?
           getErrorsFromResponseBody(response.data) :
           {_error: action.payload.message};
+        dispatch(setTaskDialogSubmitting(false));
         reject(new SubmissionError(validationErrors));
       } else {
         saveSuccess(dispatch);
+        dispatch(setTaskDialogSubmitting(false));
         resolve();
       }
     });
@@ -49,7 +54,9 @@ function closeDialog(dispatch) {
 
 export default connect(
   state => ({
-    isOpen: state.tasks.dialogOpen
+    isOpen: state.tasks.taskDialog.open,
+    isPristine: isPristine('TaskForm')(state),
+    isSubmitting: state.tasks.taskDialog.submitting // redux form does not support isSubmitting('TaskForm')(state)
   }),
   dispatch => ({
     submit: (data) => dispatch(submit('TaskForm')),
