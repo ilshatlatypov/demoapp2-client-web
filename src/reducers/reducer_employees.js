@@ -31,7 +31,7 @@ export default function(state = INITIAL_STATE, action) {
 	case REQUEST_EMPLOYEE_FAILURE:
 		return {...state, employeeSingle: {employee: null, error: action.payload, loading: false}};
 	case RESET_EMPLOYEE:
-	return {...state, employeeSingle: {employee: null, error: null, loading: false}};
+		return {...state, employeeSingle: {employee: null, error: null, loading: false}};
 
 	case OPEN_EMPLOYEE_DIALOG:
 		return {...state, newEmployee: {dialogOpen: true}};

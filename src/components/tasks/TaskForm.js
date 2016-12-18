@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {Field} from 'redux-form';
 import TextField from 'material-ui/TextField';
 
@@ -17,15 +17,27 @@ const renderTextField = (field) => {
 
 const TaskForm = props => {
   const {error, handleSubmit} = props;
+  const {isInitialValuesLoading, initialValuesLoadingError} = props;
+
+  const fieldsDisabled = Boolean(isInitialValuesLoading || initialValuesLoadingError);
+  const errorMessage = initialValuesLoadingError ? initialValuesLoadingError.message : error;
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <Field name="title" component={renderTextField} label="Название"/>
+        <Field name="title" component={renderTextField} label="Название" props={{disabled: fieldsDisabled}}/>
       </div>
-      { error && <div className="formError">{error}</div> }
+      { errorMessage && <div className="formError">{errorMessage}</div> }
       <button type="submit" className="hidden">Submit On Enter Key Press</button>
     </form>
   )
+}
+
+TaskForm.propTypes = {
+  error: PropTypes.string,
+  handleSubmit: PropTypes.func.isRequired,
+  isInitialValuesLoading: PropTypes.bool.isRequired,
+  initialValuesLoadingError: PropTypes.object
 }
 
 export default TaskForm;
