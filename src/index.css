@@ -2,6 +2,29 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  min-width: 920px;
+}
+
+.contentPaper, .toolbarGroupCentered {
+  width: 67%;
+}
+
+@media (max-width: 1260px) {
+  .contentPaper, .toolbarGroupCentered {
+    width: 840px;
+  }
+}
+
+.toolbarGroupCentered {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contentPaper {
+  max-width: 1200px;
+  margin: 24px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #loginPaper {
@@ -14,20 +37,6 @@ body {
 
 #loginPaper h3 {
   margin: 0;
-}
-
-.toolbarGroupCentered {
-  width: 70%;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.contentPaper {
-  width: 70%;
-  max-width: 1200px;
-  margin: 24px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .fab {
