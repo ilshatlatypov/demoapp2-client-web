@@ -13,6 +13,7 @@ const renderTextField = (field) => {
       errorText={field.meta.touched && field.meta.error}
       autoComplete={'off'}
       disabled={field.disabled}
+      type={'password'}
       {...field.input}
     />
   )

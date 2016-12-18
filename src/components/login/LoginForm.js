@@ -20,6 +20,7 @@ const renderTextField = (field) => {
       floatingLabelText={field.label}
       errorText={field.meta.touched && field.meta.error}
       autoComplete={'off'}
+      type={field.type}
       {...field.input}
     />
   )
@@ -30,10 +31,10 @@ const LoginForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <Field name="login" component={renderTextField} label="Логин"/>
+        <Field name="login" component={renderTextField} label="Логин" props={{type: 'text'}}/>
       </div>
       <div>
-        <Field name="password" component={renderTextField} label="Пароль"/>
+        <Field name="password" component={renderTextField} label="Пароль" props={{type: 'password'}}/>
       </div>
       {error && <div className="formError">{error}</div>}
       <div style={{ textAlign: 'center' }}>
