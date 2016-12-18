@@ -2,8 +2,18 @@ import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
 import TaskForm from '../../components/tasks/TaskForm';
 
+function validate(values) {
+  const errors = {};
+  if (!values.title || values.title.trim() === '') {
+    errors.title = "Обязательное поле";
+  }
+  return errors;
+}
+
 const TaskReduxForm = reduxForm({
-  form: 'TaskForm'
+  form: 'TaskForm',
+  fields: ['title'],
+  validate
 })(TaskForm)
 
 export default connect(
