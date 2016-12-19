@@ -19,6 +19,7 @@ class Employee extends Component {
         <TableRowColumn className="idColumn">{employee.id}</TableRowColumn>
         <TableRowColumn className="firstnameColumn">{employee.firstname}</TableRowColumn>
         <TableRowColumn className="lastnameColumn">{employee.lastname}</TableRowColumn>
+        <TableRowColumn className="tasksAmountColumn">{employee.tasksAmount}</TableRowColumn>
         <TableRowColumn className="actionButtonsColumn">{this.state.actionButtonsVisible ? <ActionButtonsGroupContainer item={employee}/> : null}</TableRowColumn>
       </TableRow>
     );

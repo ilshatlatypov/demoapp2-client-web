@@ -45,9 +45,9 @@ export function requestEmployeesFailure(error) {
 export function fetchEmployees() {
   return function(dispatch) {
 		dispatch(requestEmployees());
-		return axiosInstance.get('/employees')
+		return axiosInstance.get('/rest/employees')
 			.then(function(response) {
-				dispatch(requestEmployeesSuccess(response.data._embedded.employees));
+				dispatch(requestEmployeesSuccess(response.data));
 			})
 			.catch(function(error) {
         error = error.response ? error.response.data : error; //2nd one is network or server down errors

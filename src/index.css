@@ -87,6 +87,10 @@ body {
   width: 40%;
 }
 
+.tasksAmountColumn {
+  width: 20%;
+}
+
 .titleColumn {
   width: 90%;
 }

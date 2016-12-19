@@ -22,6 +22,7 @@ class EmployeesList extends Component {
               <TableHeaderColumn className="idColumn">ID</TableHeaderColumn>
               <TableHeaderColumn className="firstnameColumn">Имя</TableHeaderColumn>
               <TableHeaderColumn className="lastnameColumn">Фамилия</TableHeaderColumn>
+              <TableHeaderColumn className="tasksAmountColumn">Всего задач</TableHeaderColumn>
               <TableHeaderColumn className="actionButtonsColumn"></TableHeaderColumn>
             </TableRow>
           </TableHeader>
