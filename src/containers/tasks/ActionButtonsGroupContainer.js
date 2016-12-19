@@ -1,10 +1,12 @@
 import {connect} from 'react-redux';
 import {openTaskDialog, openDeleteDialog, fetchTask} from '../../actions/tasks';
+import {fetchEmployees} from '../../actions/employees';
 import ActionButtonsGroup from '../../components/ActionButtonsGroup';
 
 function openEditDialog(id, dispatch) {
-  dispatch(openTaskDialog());
+  dispatch(fetchEmployees());
   dispatch(fetchTask(id));
+  dispatch(openTaskDialog());
 }
 
 export default connect(

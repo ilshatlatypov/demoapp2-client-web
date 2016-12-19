@@ -20,7 +20,10 @@ export default connect(
   state => ({
     initialValues: state.tasks.taskForEdit.task,
     isInitialValuesLoading: state.tasks.taskForEdit.loading,
-    initialValuesLoadingError: state.tasks.taskForEdit.error
+    initialValuesLoadingError: state.tasks.taskForEdit.error,
+    employees: state.employees.employeesList.employees,
+    isEmployeesLoading: state.employees.employeesList.loading,
+    employeesLoadingError: state.employees.employeesList.error
   }),
   dispatch => ({})
 )(TaskReduxForm);

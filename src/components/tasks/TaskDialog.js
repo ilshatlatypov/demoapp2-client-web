@@ -6,10 +6,10 @@ import LinearProgress from 'material-ui/LinearProgress';
 
 const TaskDialog = props => {
   const {isOpen, isPristine, isSubmitting, submit, save, cancel} = props;
-  const {isEdit, isInitialValuesLoading} = props;
+  const {isEdit, isInitialValuesLoading, isEmployeesLoading} = props;
 
   const title = isEdit ? "Изменение задачи" : "Новая задача";
-  const progressVisible = isSubmitting || isInitialValuesLoading;
+  const progressVisible = isSubmitting || isInitialValuesLoading || isEmployeesLoading;
 
   const actions = [
     <FlatButton id="cancelButton"
@@ -47,6 +47,7 @@ TaskDialog.propTypes = {
   isSubmitting: PropTypes.bool.isRequired,
   isEdit: PropTypes.bool.isRequired,
   isInitialValuesLoading: PropTypes.bool.isRequired,
+  isEmployeesLoading: PropTypes.bool,
   submit: PropTypes.func.isRequired,
   save: PropTypes.func.isRequired,
   cancel: PropTypes.func.isRequired
