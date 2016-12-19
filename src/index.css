@@ -92,7 +92,11 @@ body {
 }
 
 .titleColumn {
-  width: 90%;
+  width: 50%;
+}
+
+.assigneeNameColumn {
+  width: 50%;
 }
 
 .actionButtonsColumn {

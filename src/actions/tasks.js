@@ -45,9 +45,9 @@ export function requestTasksFailure(error) {
 export function fetchTasks() {
   return function(dispatch) {
 		dispatch(requestTasks());
-		return axiosInstance.get('/tasks')
+		return axiosInstance.get('/rest/tasks')
 			.then(function(response) {
-				dispatch(requestTasksSuccess(response.data._embedded.tasks));
+				dispatch(requestTasksSuccess(response.data));
 			})
 			.catch(function(error) {
         error = error.response ? error.response.data : error; //2nd one is network or server down errors

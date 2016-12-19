@@ -18,6 +18,7 @@ class Task extends Component {
         {otherProps.children[0]}
         <TableRowColumn className="idColumn">{task.id}</TableRowColumn>
         <TableRowColumn className="titleColumn">{task.title}</TableRowColumn>
+        <TableRowColumn className="assigneeNameColumn">{task.assigneeName}</TableRowColumn>
         <TableRowColumn className="actionButtonsColumn">{this.state.actionButtonsVisible ? <ActionButtonsGroupContainer item={task}/> : null}</TableRowColumn>
       </TableRow>
     );

@@ -21,6 +21,7 @@ class TasksList extends Component {
             <TableRow>
               <TableHeaderColumn className="idColumn">ID</TableHeaderColumn>
               <TableHeaderColumn className="titleColumn">Название</TableHeaderColumn>
+              <TableHeaderColumn className="assigneeNameColumn">Исполнитель</TableHeaderColumn>
               <TableHeaderColumn className="actionButtonsColumn"></TableHeaderColumn>
             </TableRow>
           </TableHeader>
