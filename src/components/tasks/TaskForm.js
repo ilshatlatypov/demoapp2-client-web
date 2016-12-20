@@ -59,6 +59,7 @@ const TaskForm = props => {
       </div>
       <div>
         <Field name="assigneeId" component={renderSelectField} label="Исполнитель" props={{disabled: fieldsDisabled}}>
+          <MenuItem key={0} value={0} primaryText={"Не назначен"}/>
           {renderEmployeeMenuItems(employees)}
         </Field>
       </div>
