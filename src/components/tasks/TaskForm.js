@@ -3,6 +3,8 @@ import {Field} from 'redux-form';
 import TextField from 'material-ui/TextField';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
+import {DatePicker} from 'redux-form-material-ui';
+import dateFormat from 'dateformat';
 
 const renderTextField = (field) => {
   return (
@@ -37,6 +39,10 @@ const renderEmployeeMenuItems = employees => {
   ));
 }
 
+const formatDate = (value, name) => value === '' ? null : new Date(value);
+
+const normalizeDate = (value) => dateFormat(value, "yyyy-mm-dd");
+
 const TaskForm = props => {
   const {error, handleSubmit} = props;
   const {isInitialValuesLoading, initialValuesLoadingError} = props;
@@ -56,6 +62,17 @@ const TaskForm = props => {
     <form onSubmit={handleSubmit}>
       <div>
         <Field name="title" component={renderTextField} label="Название" props={{disabled: fieldsDisabled}}/>
+      </div>
+      <div>
+        <Field name="dueDate"
+          type="string"
+          component={DatePicker}
+          minDate={new Date()}
+          onChange={(value) => { return 'test' }}
+          format={formatDate}
+          normalize={normalizeDate}
+          locale="ru" DateTimeFormat={global.Intl.DateTimeFormat}
+          floatingLabelText="Дата"/>
       </div>
       <div>
         <Field name="assigneeId" component={renderSelectField} label="Исполнитель" props={{disabled: fieldsDisabled}}>
