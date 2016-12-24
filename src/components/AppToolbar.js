@@ -40,6 +40,7 @@ const getStyles = (theme) => {
     },
     iconButtonLeftStyle: {
       marginTop: (appBar.height - iconButtonSize) / 2,
+      marginBottom: (appBar.height - iconButtonSize) / 2,
       marginRight: 8,
       marginLeft: 8
     },
