@@ -21,7 +21,7 @@ export default function(state = INITIAL_STATE, action) {
   case SET_DRAWER_OPEN:
     return { ...state, drawerOpen: action.payload };
   case LOCATION_CHANGE:
-    return { ...state, location: action.payload };
+    return { ...state, location: action.payload, searchString: '' };
   case LOGOUT:// start fetching employees and set loading = true
   	return { ...state };
 

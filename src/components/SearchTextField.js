@@ -22,22 +22,19 @@ const styles = {
 }
 
 class SearchTextField extends Component {
-  componentWillMount() {
-    this.props.drop();
-  }
 
   handleKeyDown = (e) => {
     if (e.key === 'Escape') {
-      this.props.onChange('');
+      this.props.setSearchString('');
     }
   }
 
   render() {
-    const {searchString, onChange} = this.props;
+    const {searchString, setSearchString} = this.props;
     return (
       <TextField
         value={searchString}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => setSearchString(e.target.value)}
         onKeyDown={this.handleKeyDown}
         underlineShow={false} hintText="Поиск"
         style={styles.root}
@@ -49,8 +46,7 @@ class SearchTextField extends Component {
 
 SearchTextField.propTypes = {
   searchString: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  drop: PropTypes.func.isRequired
+  setSearchString: PropTypes.func.isRequired
 }
 
 export default SearchTextField;

@@ -2,19 +2,13 @@ import {connect} from 'react-redux'
 import {setSearchString} from '../actions/filters';
 import SearchTextField from '../components/SearchTextField';
 
-const mapStateToProps = (state) => {
-  return {
+const SearchTextFieldContainer = connect(
+  state => ({
     searchString: state.filters.searchString
-  };
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onChange: (newSearchString) => dispatch(setSearchString(newSearchString)),
-    drop: () => dispatch(setSearchString(''))
-  }
-}
-
-const SearchTextFieldContainer = connect(mapStateToProps, mapDispatchToProps)(SearchTextField);
+  }),
+  dispatch => ({
+    setSearchString: (newSearchString) => dispatch(setSearchString(newSearchString))
+  })
+)(SearchTextField);
 
 export default SearchTextFieldContainer;

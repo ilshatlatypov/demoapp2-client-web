@@ -68,7 +68,7 @@ const AppToolbar = ({location, onMenuIconButtonTouchTap}, context) => {
       <NavigationMenu />
     </IconButton>;
   const navButtonStub = <div style={styles.iconButtonLeftStyle}/>;
-  const displaySearchBox = (location.pathname === '/employees');
+  const displaySearchBox = (location.pathname === '/employees') || (location.pathname === '/tasks');
 
   return (
     <Toolbar style={styles.root}>
