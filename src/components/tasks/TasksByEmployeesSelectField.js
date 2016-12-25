@@ -9,7 +9,9 @@ class TasksByEmployeesSelectField extends Component {
 
   render() {
     return (
-      <SelectField value={this.props.filter} onChange={this.handleChange}>
+      <SelectField style={{marginLeft: 12, marginRight: 12}}
+        value={this.props.filter}
+        onChange={this.handleChange}>
         <MenuItem value={'SHOW_ALL'} primaryText="Все задачи" />
         <MenuItem value={'SHOW_ASSIGNED'} primaryText="Назначенные" />
         <MenuItem value={'SHOW_NOT_ASSIGNED'} primaryText="Неназначенные" />

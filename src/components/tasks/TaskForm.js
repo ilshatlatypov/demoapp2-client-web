@@ -68,7 +68,6 @@ const TaskForm = props => {
           type="string"
           component={DatePicker}
           minDate={new Date()}
-          onChange={(value) => { return 'test' }}
           format={formatDate}
           normalize={normalizeDate}
           locale="ru" DateTimeFormat={global.Intl.DateTimeFormat}
