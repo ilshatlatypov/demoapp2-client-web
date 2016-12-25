@@ -15,7 +15,8 @@ class TasksDateFilter extends Component {
         <DatePicker style={{width: 220}}
           value={dateFilter}
           locale="ru" DateTimeFormat={global.Intl.DateTimeFormat}
-          hintText="Задачи на дату"
+          hintText="Задачи по дате"
+          cancelLabel="Отмена"
           onChange={this.handleChange}/>
         {
           dateFilter ?

@@ -1,10 +1,12 @@
 import {connect} from 'react-redux';
+import dateFormat from 'dateformat';
 import {fetchTasks} from '../../actions/tasks';
 import TasksList from '../../components/tasks/TasksList';
 
 const getFilteredTasks = (tasksList, filters) => {
   let filtered = tasksList.tasks;
   filtered = applyByEmployeesFilter(filtered, filters.tasksByEmployeesFilter);
+  filtered = applyDateFilter(filtered, filters.tasksDateFilter);
   filtered = applySearchFilter(filtered, filters.searchString.trim());
   return {
     tasks: filtered,
@@ -24,6 +26,15 @@ function applyByEmployeesFilter(tasks, filter) {
     default:
       return tasks
   }
+}
+
+function applyDateFilter(tasks, date) {
+  if (date === null) {
+    return tasks;
+  }
+  console.log(tasks);
+  const dateStr = dateFormat(date, "yyyy-mm-dd");
+  return tasks.filter(t => t.dueDate === dateStr);
 }
 
 function applySearchFilter(tasks, searchString) {

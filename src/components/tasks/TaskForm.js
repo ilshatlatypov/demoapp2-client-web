@@ -71,6 +71,7 @@ const TaskForm = props => {
           format={formatDate}
           normalize={normalizeDate}
           locale="ru" DateTimeFormat={global.Intl.DateTimeFormat}
+          cancelLabel="Отмена"
           floatingLabelText="Дата"/>
       </div>
       <div>
