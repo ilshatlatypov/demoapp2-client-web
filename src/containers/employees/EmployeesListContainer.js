@@ -3,24 +3,34 @@ import {fetchEmployees} from '../../actions/employees';
 import EmployeesList from '../../components/employees/EmployeesList';
 
 const getFilteredEmployees = (employeesList, filters) => {
-  let filteredEmployeesList = {
-    employees: employeesList.employees,
+  let filtered = employeesList.employees;
+  filtered = applyByTaskFilter(filtered, filters.employeesByTaskFilter);
+  filtered = applySearchFilter(filtered, filters.searchString.trim());
+  return {
+    employees: filtered,
     loading: employeesList.loading,
     error: employeesList.error
   }
-  if (filters.employeesWithoutTasksFilter) {
-    filteredEmployeesList.employees = filteredEmployeesList.employees.filter(e => e.id < 10);
-  }
+}
 
-  let searchString = filters.searchString.trim();
-  if (searchString !== '') {
-    searchString = searchString.toLowerCase();
-    filteredEmployeesList.employees = applySearchFilter(filteredEmployeesList.employees, searchString);
+function applyByTaskFilter(employees, filter) {
+  switch (filter) {
+    case 'SHOW_ALL':
+      return employees
+    case 'SHOW_WITH_TASKS':
+      return employees.filter(e => e.tasksAmount > 0)
+    case 'SHOW_WITHOUT_TASKS':
+      return employees.filter(e => e.tasksAmount === 0)
+    default:
+      return employees
   }
-  return filteredEmployeesList;
 }
 
 function applySearchFilter(employees, searchString) {
+  if (searchString === '') {
+    return employees;
+  }
+  searchString = searchString.toLowerCase();
   if (!hasWhiteSpace(searchString)) {
     return employees.filter(emp => firstnameOrLastnameMatch(emp, searchString));
   } else {
@@ -45,18 +55,13 @@ function firstnameAndLastnameMatch(employee, searchWord1, searchWord2) {
          (firstname.startsWith(searchWord2) && lastname.startsWith(searchWord1))
 }
 
-const mapStateToProps = (state) => {
-  return {
+const EmployeesListContainer = connect(
+  state => ({
     employeesList: getFilteredEmployees(state.employees.employeesList, state.filters)
-  };
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
+  }),
+  dispatch => ({
     fetchEmployees: () => dispatch(fetchEmployees())
-  }
-}
+  })
+)(EmployeesList)
 
-const EmployeesListContainer = connect(mapStateToProps, mapDispatchToProps)(EmployeesList)
-
-export default EmployeesListContainer
+export default EmployeesListContainer;

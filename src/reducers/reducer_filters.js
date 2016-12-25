@@ -1,13 +1,21 @@
-import {SET_EMPLOYEES_WITHOUT_TASKS_FILTER, SET_SEARCH_STRING, SET_DRAWER_OPEN, LOGOUT} from '../actions/filters';
+import {
+  SET_EMPLOYEES_BY_TASK_FILTER, EmployeesByTaskFilters,
+  SET_SEARCH_STRING, SET_DRAWER_OPEN, LOGOUT
+} from '../actions/filters';
 import {LOCATION_CHANGE} from 'react-router-redux';
 
-const INITIAL_STATE = { employeesWithoutTasksFilter: false, searchString: '', location: '', drawerOpen: false };
+const INITIAL_STATE = {
+  employeesByTaskFilter: EmployeesByTaskFilters.SHOW_ALL,
+  searchString: '',
+  location: '',
+  drawerOpen: false
+};
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
 
-  case SET_EMPLOYEES_WITHOUT_TASKS_FILTER:
-  	return { ...state, employeesWithoutTasksFilter: action.payload };
+  case SET_EMPLOYEES_BY_TASK_FILTER:
+  	return { ...state, employeesByTaskFilter: action.payload };
   case SET_SEARCH_STRING:
     return { ...state, searchString: action.payload };
   case SET_DRAWER_OPEN:
