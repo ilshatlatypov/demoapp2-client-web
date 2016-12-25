@@ -1,11 +1,13 @@
 import {
   SET_EMPLOYEES_BY_TASK_FILTER, EmployeesByTaskFilters,
+  SET_TASKS_BY_EMPLOYEES_FILTER, TasksByEmployeesFilter,
   SET_SEARCH_STRING, SET_DRAWER_OPEN, LOGOUT
 } from '../actions/filters';
 import {LOCATION_CHANGE} from 'react-router-redux';
 
 const INITIAL_STATE = {
   employeesByTaskFilter: EmployeesByTaskFilters.SHOW_ALL,
+  tasksByEmployeesFilter: TasksByEmployeesFilter.SHOW_ALL,
   searchString: '',
   location: '',
   drawerOpen: false
@@ -16,6 +18,8 @@ export default function(state = INITIAL_STATE, action) {
 
   case SET_EMPLOYEES_BY_TASK_FILTER:
   	return { ...state, employeesByTaskFilter: action.payload };
+  case SET_TASKS_BY_EMPLOYEES_FILTER:
+  	return { ...state, tasksByEmployeesFilter: action.payload };
   case SET_SEARCH_STRING:
     return { ...state, searchString: action.payload };
   case SET_DRAWER_OPEN:

@@ -4,11 +4,25 @@ import TasksList from '../../components/tasks/TasksList';
 
 const getFilteredTasks = (tasksList, filters) => {
   let filtered = tasksList.tasks;
+  filtered = applyByEmployeesFilter(filtered, filters.tasksByEmployeesFilter);
   filtered = applySearchFilter(filtered, filters.searchString.trim());
   return {
     tasks: filtered,
     loading: tasksList.loading,
     error: tasksList.error
+  }
+}
+
+function applyByEmployeesFilter(tasks, filter) {
+  switch (filter) {
+    case 'SHOW_ALL':
+      return tasks
+    case 'SHOW_ASSIGNED':
+      return tasks.filter(t => t.assigneeName !== null)
+    case 'SHOW_NOT_ASSIGNED':
+      return tasks.filter(t => t.assigneeName === null)
+    default:
+      return tasks
   }
 }
 

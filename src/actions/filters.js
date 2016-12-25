@@ -1,6 +1,7 @@
 import axiosInstance from './axiosInstance';
 
 export const SET_EMPLOYEES_BY_TASK_FILTER = 'SET_EMPLOYEES_BY_TASK_FILTER';
+export const SET_TASKS_BY_EMPLOYEES_FILTER = 'SET_TASKS_BY_EMPLOYEES_FILTER';
 export const SET_SEARCH_STRING = 'SET_SEARCH_STRING';
 export const SET_DRAWER_OPEN = 'SET_DRAWER_OPEN';
 export const LOGOUT = 'LOGOUT';
@@ -39,4 +40,17 @@ export function setEmployeesByTaskFilter(filter) {
     payload: filter
   }
 
+}
+
+export const TasksByEmployeesFilter = {
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_ASSIGNED: 'SHOW_ASSIGNED',
+  SHOW_NOT_ASSIGNED: 'SHOW_NOT_ASSIGNED'
+}
+
+export function setTasksByEmployeesFilter(filter) {
+  return {
+    type: SET_TASKS_BY_EMPLOYEES_FILTER,
+    payload: filter
+  }
 }
